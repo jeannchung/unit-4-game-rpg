@@ -1,0 +1,36 @@
+body {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+}
+
+#samusName {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    margin-left: -29px;
+}
+
+.samus {
+    float: left;
+    margin-left: 103px;
+    margin-top: 55px;
+}
+
+.enemy {
+    float: right;
+    margin-right: -8px;
+    margin-top: -40px;
+}
+
+#enemy {
+    width: 366px;
+    height: 416px;
+    margin-top: 12px;
+    margin-right: 45px;
+}
+
+#enemyName {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    margin-left: 88px;
+    margin-top: 100px;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,32 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
+
 <body>
     <div class="samus">
         <h1 id="samusName">Samus Aran</h1>
         <img id="samus" src="assets/images/samus.png" alt="Samus Aran">
+        <h1 id="samusHP">100</h1>
+        <h3 class="samusDT">-15</h3>
     </div>
-    <div class="enemy">
-        <h1 id="enemyName">Ridley</h1>
-        <img id="enemy" src="assets/images/enemy1.png" alt="">
+    <div class="enemy1">
+        <h1 id="enemyName"></h1>
+        <img id="enemy1" alt="">
+        <h1 id="enemyHP1">100</h1>
+        <h3 class="enemyDT">-15</h3>
+    </div>
+    <button class="attack">
+        <h1 id="button">Attack</h1>
+    </button>
+    
+    <div>
+        <h5 id="message">You win! Press the ATTACK button to play again.</h5>
     </div>
     
+    
 
-    <script src="assets/javascript/app.js"></script>
     <script src='https://code.jquery.com/jquery-3.3.1.js' integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=' crossorigin='anonymous'></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
-
-
-<!-- samus name div -->
-<!-- enemy name div -->
-<!-- health bar divs for each side -->
-<!-- randomization for enemy displayed, template literals for source index -->
-<!-- randomization for enemy NAME displayed, if enemy${i} === 1, etc, etc -->
-

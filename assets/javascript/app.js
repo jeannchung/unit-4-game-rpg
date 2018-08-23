@@ -7,6 +7,7 @@ let samusDamage = 0;
 let samusBonus = 0;
 let enemyDamage = 0;
 let currentEnemy = '';
+let enemyChoice = Math.floor(Math.random() * enemies.length) + 1
 
 $('.attack').on('click', function () {
     switch (battlePhase) {
@@ -18,11 +19,15 @@ $('.attack').on('click', function () {
             break
         case 1:
             displayDamage()
+            displayDamage1()
             break
         case 3:
-
+            displayDamage()
+            displayDamage1()
+            break
         case 5:
             displayDamage()
+            displayDamage1()
             break
         case -1:
             reset()
@@ -45,16 +50,17 @@ $(document).ready(function () {
 })
 
 function bossSetup() {
-    let enemyChoice = Math.floor(Math.random() * enemies.length) + 1
+    
     currentEnemy = enemies[enemyChoice - 1]
     $('#enemyName').text(currentEnemy)
     $('#enemy1').attr('src', 'assets/images/enemy' + enemyChoice + '.png')
-    enemies[enemyChoice - 1] = ''
     $('#message').css("visibility", "hidden")
     if (battlePhase === 0) {
         enemyHP = 100
-    } else {
-        enemyHP = battlePhase * 100
+    } else if (battlePhase === 2) {
+        enemyHP = 200
+    } else if (battlePhase === 4) {
+        enemyHP = 400
     }
 }
 
@@ -65,25 +71,40 @@ function attack() {
 }
 
 function displayDamage() {
-    $("#enemyDT").text("-" + samusDamage)
-    $("#enemyDT").show()
-    $("#enemyDT").animate({ top: '250px', opacity: 0 }, 1000)
+    // displays damage taken by ENEMY, animates, and updates hp
+    $(".enemyDT").text("-" + samusDamage)
+    $(".enemyDT").show()
+    $(".enemyDT").animate({ top: '250px', opacity: 0 }, 1000)
     enemyHP -= samusDamage
     $('#enemyHP1').text(enemyHP)
+
+    // log for testing purposes
     console.log(`Enemy HP: ${enemyHP}`)
     console.log(`Enemy damage taken: ${samusDamage}`)
     checkEnemyHealth()
+    //checkEnemyHealth() just adds button logic & functionality
+
+    // calculate enemyDamage, display next to samus, animate, update HP
     enemyDamage = Math.floor(Math.random() * 15)
-    $("#samusDT").text("-" + enemyDamage)
-    $("#samusDT").show()
-    $("#samusDT").animate({ top: '250px', opacity: 0 }, 1000)
+    $(".samusDT").text("-" + enemyDamage)
+    $(".samusDT").show()
+    $(".samusDT").animate({ top: '250px', opacity: 0 }, 1000)
     samusHP -= enemyDamage
+    $('#samusHP').text(samusHP)
+
+    // log for testing purposes
     console.log(`Samus HP: ${samusHP}`)
     console.log(`Samus damage taken: ${enemyDamage}`)
-    $('#samusHP').text(samusHP)
+    
     checkSamusHealth()
     samusDamage += samusBonus
 }
+
+function displayDamage1() {
+    $(".enemyDT").css("opacity", "1")
+
+}
+
 
 function checkEnemyHealth() {
     if (enemyHP <= 0) {
@@ -98,7 +119,10 @@ function checkSamusHealth() {
 }
 
 function defeatBoss() {
+    // increment battlePhase, change button appropriately if boss is defeated
     battlePhase++
+    console.log(battlePhase)
+    enemies[enemyChoice - 1] = ''
     $('#enemyHP1').text(0)
     $('#message').text('Victory! Your next challenger awaits.')
     $('#message').css("visibility", "visible")

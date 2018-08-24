@@ -7,7 +7,8 @@ let samusDamage = 0;
 let samusBonus = 0;
 let enemyDamage = 0;
 let currentEnemy = '';
-let enemyChoice = Math.floor(Math.random() * enemies.length) + 1
+let enemyChoice = 0
+let bossesAlive = 3
 
 $('.attack').on('click', function () {
     switch (battlePhase) {
@@ -18,24 +19,16 @@ $('.attack').on('click', function () {
             battlePhase++
             break
         case 1:
-            displayDamage()
-            displayDamage1()
-            break
         case 3:
-            displayDamage()
-            displayDamage1()
-            break
         case 5:
             displayDamage()
-            displayDamage1()
             break
         case -1:
             reset()
             break
         case 2:
-            bossSetup()
-            break
         case 4:
+            battlePhase++
             bossSetup()
             break
         case 6:
@@ -51,9 +44,11 @@ $(document).ready(function () {
 
 function bossSetup() {
     
+    enemyChoice = Math.floor(Math.random() * bossesAlive) + 1
     currentEnemy = enemies[enemyChoice - 1]
     $('#enemyName').text(currentEnemy)
     $('#enemy1').attr('src', 'assets/images/enemy' + enemyChoice + '.png')
+    $('#button').text('Attack')
     $('#message').css("visibility", "hidden")
     if (battlePhase === 0) {
         enemyHP = 100
@@ -62,6 +57,8 @@ function bossSetup() {
     } else if (battlePhase === 4) {
         enemyHP = 400
     }
+    $('#enemyHP1').text(enemyHP)
+  
 }
 
 

@@ -6,76 +6,71 @@ body {
 #samusName {
     font-family: 'Press Start 2P', cursive;
     color: white;
-    margin-left: -29px;
+}
+
+#samus {
+    justify-content: center;
 }
 
 .samus {
     float: left;
-    margin-left: 103px;
-    margin-top: 55px;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: 40px;
 }
 
 #samusHP {
     font-family: 'Press Start 2P', cursive;
     color: white;
-    margin-left: 51px;
+    justify-content: center;
 }
 
 .samusDT {
     font-family: 'Press Start 2P', cursive;
     color: red;
-    margin-top: -234px;
-    margin-left: 188px;
     display: none;
 }
 
 
 .enemy1 {
     float: right;
-    margin-right: -8px;
-    margin-top: -40px;
+    margin-top: 40px;
+    margin-right: 40px;
 }
 
 #enemy1 {
     width: 366px;
     height: 416px;
-    margin-top: 12px;
-    margin-right: 45px;
 }
 
 #enemyName {
     font-family: 'Press Start 2P', cursive;
     color: white;
-    margin-left: 88px;
-    margin-top: 100px;
 }
 
 #enemyHP1{
     font-family: 'Press Start 2P', cursive;
     color: white;
-    margin-left: 126px;
 }
 
 .enemyDT {
     font-family: 'Press Start 2P', cursive;
     color: red;
-    margin-top: -234px;
-    margin-left: -77px;
     display: none;
 }
 
 .attack {
     font-family: 'Press Start 2P', cursive;
     color: black;
-    margin-top: 478px;
-    margin-left: 253px;
 }
 
 #message {
     font-family: 'Press Start 2P', cursive;
     color: white;
     text-align: center;
-    margin-left: 10px;
-    margin-top: 10px;
     visibility: hidden;
+}
+
+#button {
+    
 }

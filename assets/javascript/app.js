@@ -20,22 +20,38 @@ $('.attack').on('click', function () {
             break
         case 1:
         case 3:
+            if (battlePhase === 3 || battlePhase === 5) {
+                $('#button').text('Attack')
+            }
+            displayDamage()
         case 5:
+            if (battlePhase === 3 || battlePhase === 5) {
+                $('#button').text('Attack')
+            }
             displayDamage()
             break
         case -1:
             reset()
             break
         case 2:
-        case 4:
-            battlePhase++
+            if (battlePhase === 3 || battlePhase === 5) {
+                $('#button').text('Attack')
+            }
             bossSetup()
+            battlePhase++
+        case 4:
+            if (battlePhase === 3 || battlePhase === 5) {
+                $('#button').text('Attack')
+            }
+            bossSetup()
+            battlePhase++
             break
         case 6:
             reset()
             break
 
     }
+    console.log(battlePhase)
 })
 
 $(document).ready(function () {
@@ -43,22 +59,21 @@ $(document).ready(function () {
 })
 
 function bossSetup() {
-    
+
     enemyChoice = Math.floor(Math.random() * bossesAlive) + 1
     currentEnemy = enemies[enemyChoice - 1]
     $('#enemyName').text(currentEnemy)
     $('#enemy1').attr('src', 'assets/images/enemy' + enemyChoice + '.png')
-    $('#button').text('Attack')
     $('#message').css("visibility", "hidden")
     if (battlePhase === 0) {
         enemyHP = 100
-    } else if (battlePhase === 2) {
-        enemyHP = 200
-    } else if (battlePhase === 4) {
-        enemyHP = 400
+    } else {
+        enemyHP = 100 * battlePhase
     }
     $('#enemyHP1').text(enemyHP)
-  
+
+
+
 }
 
 
@@ -92,9 +107,11 @@ function displayDamage() {
     // log for testing purposes
     console.log(`Samus HP: ${samusHP}`)
     console.log(`Samus damage taken: ${enemyDamage}`)
-    
+
     checkSamusHealth()
     samusDamage += samusBonus
+
+
 }
 
 function displayDamage1() {
@@ -125,7 +142,7 @@ function defeatBoss() {
     $('#message').css("visibility", "visible")
     if (battlePhase === 6) {
         $('#button').text('Start Over')
-    } else {
+    } else if (battlePhase === 2 || battlePhase === 4) {
         $('#button').text('Next Boss')
     }
 }
@@ -134,6 +151,8 @@ function lose() {
     $('#message').text('You lose! Press the button to try again.')
     battlePhase = -1
 }
+
+
 
 // 0 set up boss
 // 1 fighting first boss

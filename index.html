@@ -6,32 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB'
+        crossorigin='anonymous'>
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 
 <body>
-    <div class="samus">
-        <h1 id="samusName">Samus Aran</h1>
-        <img id="samus" src="assets/images/samus.png" alt="Samus Aran">
-        <h1 id="samusHP">100</h1>
-        <h3 class="samusDT"></h3>
+    <div class="container-fluid">
+        <div class="samus">
+            <h1 id="samusName">Samus Aran</h1>
+            <img id="samus" class="mx-auto d-block" src="assets/images/samus.png" alt="Samus Aran">
+            <h1 id="samusHP" class="text-center">100</h1>
+            <h3 class="samusDT"></h3>
+        </div>
+        <div class="enemy1">
+            <h1 id="enemyName" class="text-center"></h1>
+            <img id="enemy1" class="mx-auto d-block" alt="">
+            <h1 id="enemyHP1" class="text-center">100</h1>
+            <h3 class="enemyDT"></h3>
+        </div>
+        <button class="attack">
+            <h1 id="button" >Attack</h1>
+        </button>
+
+        <div>
+            <h5 id="message">You win! Press the ATTACK button to play again.</h5>
+        </div>
     </div>
-    <div class="enemy1">
-        <h1 id="enemyName"></h1>
-        <img id="enemy1" alt="">
-        <h1 id="enemyHP1">100</h1>
-        <h3 class="enemyDT"></h3>
-    </div>
-    <button class="attack">
-        <h1 id="button">Attack</h1>
-    </button>
-    
-    <div>
-        <h5 id="message">You win! Press the ATTACK button to play again.</h5>
-    </div>
-    
-    
+
+
 
     <script src='https://code.jquery.com/jquery-3.3.1.js' integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=' crossorigin='anonymous'></script>
     <script src="assets/javascript/app.js"></script>
